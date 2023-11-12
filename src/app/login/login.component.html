@@ -1,0 +1,29 @@
+<p>login works!</p>
+<form class="form" role="form" (ngSubmit)="login()" [formGroup]="loginForm">
+    <div class="inputfield">
+      <strong><label for="username" jhiTranslate="global.form.username.label" class="inputLogin">Login</label></strong>
+
+      <input type="text" name="username" id="username" formControlName="username" #username data-cy="username" />
+    </div>
+
+    <div class="inputfield">
+      <label for="password" jhiTranslate="login.form.password">Password</label>
+      <input type="password" name="password" id="password" formControlName="password" data-cy="password" />
+    </div>
+
+    <button type="submit" class="botonLogin" jhiTranslate="login.form.button" data-cy="submit">Sign in</button>
+
+    <div class="recuperar-contrasena">
+      <a
+        routerLink="/account/reset/request"
+        jhiTranslate="login.password.forgot"
+        data-cy="forgetYourPasswordSelector"
+        class="recuperar-contrasena"
+        >Did you forget your password?</a
+      >
+    </div>
+
+    <div class="alert-login" *ngIf="authenticationError" data-cy="loginError" jhiTranslate="login.messages.error.authentication">
+      <span>Usuario o contraseña incorrecto</span>
+    </div>
+  </form>
